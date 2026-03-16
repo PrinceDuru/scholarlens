@@ -7,8 +7,6 @@ load_dotenv()  # loads .env from the project root
 
 # ---------------------------------------------------------------------------
 # Configuration
-# Token is read from .env (or a real environment variable as fallback).
-# .env is gitignored — never committed.
 # ---------------------------------------------------------------------------
 HF_TOKEN = os.environ.get("HF_TOKEN")
 if not HF_TOKEN:
