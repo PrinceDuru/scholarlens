@@ -3,7 +3,7 @@ import json
 import os
 from dotenv import load_dotenv
 
-load_dotenv()  # loads .env from the project root
+load_dotenv()  
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -126,14 +126,14 @@ TASKS = [
 def run_scholarlens_pipeline(text: str) -> None:
     """Run all four ScholarLens extraction tasks and print structured output."""
     print("=" * 62)
-    print("           SCHOLARLENS — PAPER ANALYSIS")
+    print("           SCHOLARLENS - PAPER ANALYSIS")
     print(f"           Model: {MODEL_ID}")
     print("=" * 62)
 
     for task_key, label in TASKS:
-        print(f"\n{'─' * 62}")
+        print("\n" + "-" * 62)
         print(f"  {label}")
-        print(f"{'─' * 62}")
+        print("-" * 62)
         output = call_llm(task_key, text)
         print(output)
 
