@@ -141,10 +141,36 @@ scholarlens/
 
 ## Milestones
 
-| Milestone | Status | Description |
-|-----------|--------|-------------|
-| Milestone 1 | ✅ Complete | Project Proposal — architecture design, technology selection, pattern identification |
-| Milestone 2 | 🔄 In Progress | Core implementation |
+| Milestone | Status |
+|-----------|--------|
+| Milestone 1 – Project Proposal | ✅ Complete |
+| Milestone 2 – 4+1 View Model + Database Connection | ✅ Complete |
+| Milestone 3 – 4+1 View Model – Web API | ✅ Complete |
+| Milestone 4 – Implementation | ✅ Complete |
+
+---
+
+### Milestone 1 – Project Proposal ✅
+
+Defined the purpose, scope, and target audience of ScholarLens. Identified the core design patterns (Facade, Adapter, Factory Method) and the MVC architectural pattern. Selected the technology stack: Python, Google Cloud Firestore, and Hugging Face Inference API. Outlined the initial functional scope and optional stretch goals.
+
+---
+
+### Milestone 2 – 4+1 View Model + Database Connection ✅
+
+Documented the full system architecture using the 4+1 View Model (Logical, Process, Development, Physical, and Scenario views). Established the Firestore database connection and defined the persistence schema for papers, summaries, extraction results, and run logs. Implemented the `FirestoreRepository` to handle all cloud database operations.
+
+---
+
+### Milestone 3 – 4+1 View Model – Web API ✅
+
+Extended the architecture to integrate an external web API (Hugging Face Inference Router). Implemented the `HuggingFaceLLMAdapter` to handle all LLM calls for summarization, key contribution extraction, dataset/method identification, and citation extraction. Implemented the `DocumentProviderFactory` and `LLMProviderFactory` to decouple adapter selection from the pipeline logic.
+
+---
+
+### Milestone 4 – Implementation ✅
+
+Delivered the fully operational end-to-end CLI pipeline. The app accepts PDF or plain-text input, extracts and truncates content for LLM processing, calls the Hugging Face API across four extraction tasks, persists all results to Firestore, and renders structured output to the terminal. Includes MVC wiring: `CLIController`, `CLIView`, and `PipelineFacade` coordinating all components.
 
 ---
 
