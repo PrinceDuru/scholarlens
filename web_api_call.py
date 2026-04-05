@@ -11,7 +11,7 @@ load_dotenv()
 HF_TOKEN = os.environ.get("HF_TOKEN")
 if not HF_TOKEN:
     raise EnvironmentError("HF_TOKEN is not set. Add it to a .env file or set the environment variable.")
-MODEL_ID  = "Qwen/Qwen2.5-7B-Instruct"   # routed to Qwen2.5-7B-Instruct-Turbo
+MODEL_ID  = "Qwen/Qwen2.5-7B-Instruct"   
 API_URL   = "https://router.huggingface.co/v1/chat/completions"
 
 HEADERS = {
