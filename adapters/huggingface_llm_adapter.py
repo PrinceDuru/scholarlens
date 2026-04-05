@@ -47,7 +47,6 @@ class HuggingFaceLLMAdapter(BaseLLMAdapter):
         if not token:
             raise EnvironmentError(
                 "HF_TOKEN is not set. "
-                "Add it to your .env file or set the environment variable."
             )
         self._headers = {
             "Authorization": f"Bearer {token}",
@@ -64,9 +63,12 @@ class HuggingFaceLLMAdapter(BaseLLMAdapter):
                 f"Unknown task '{task}'. Valid tasks: {list(_USER_PROMPTS)}"
             )
 
+        # Truncate to ~12 000 chars to stay within the model's context window
+        truncated_text = text.strip()[:12000]
+
         messages = [
             {"role": "system", "content": _SYSTEM_PROMPT},
-            {"role": "user", "content": _USER_PROMPTS[task].format(text=text.strip())},
+            {"role": "user", "content": _USER_PROMPTS[task].format(text=truncated_text)},
         ]
         payload = {
             "model": self._model_id,
